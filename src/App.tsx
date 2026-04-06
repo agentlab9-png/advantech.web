@@ -10,7 +10,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/advantech.web">
           <Routes>
             <Route path="/"      element={<HomePage />} />
             <Route path="/admin" element={<AdminPage />} />
