@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+/* ---- Tailwind: class-based dark mode ---- */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---- CSS Theme Variables ---- */
+:root {
+  --bg-page:    #000000;
+  --bg-section: #030712;   /* gray-950 */
+  --bg-card:    #111827;   /* gray-900 */
+  --bg-card2:   #1f2937;   /* gray-800 */
+  --text-1:     #ffffff;
+  --text-2:     rgba(255,255,255,0.75);
+  --text-3:     rgba(255,255,255,0.50);
+  --text-4:     rgba(255,255,255,0.30);
+  --border-1:   #1f2937;   /* gray-800 */
+  --border-2:   #374151;   /* gray-700 */
+  --accent:     #b91c1c;   /* red-700 */
+  --accent-bg:  rgba(185,28,28,0.15);
+  --nav-bg:     rgba(0,0,0,0.35);
+}
+
+:root.light {
+  --bg-page:    #f8fafc;
+  --bg-section: #ffffff;
+  --bg-card:    #f1f5f9;
+  --bg-card2:   #e2e8f0;
+  --text-1:     #0f172a;
+  --text-2:     #334155;
+  --text-3:     #64748b;
+  --text-4:     #94a3b8;
+  --border-1:   #e2e8f0;
+  --border-2:   #cbd5e1;
+  --accent:     #b91c1c;
+  --accent-bg:  rgba(185,28,28,0.08);
+  --nav-bg:     rgba(248,250,252,0.80);
+}
+
+/* ---- Base ---- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--bg-page);
+  color: var(--text-1);
+  transition: background-color 0.3s, color 0.3s;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Fix 100vh on iOS Safari — use dvh (dynamic viewport height) */
+.h-screen { height: 100dvh; }
+.min-h-screen { min-height: 100dvh; }
+
+:root     { font-family: 'Inter', sans-serif; }
+:root[dir="rtl"] { font-family: 'Cairo', 'Inter', sans-serif; }
+
+#root { width: 100%; min-height: 100vh; }
+
+/* ---- Shiny Text ---- */
+@keyframes shine {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+.shiny-text {
+  background: linear-gradient(
+    100deg,
+    #b91c1c 0%, #dc2626 20%, #ffffff 40%,
+    #dc2626 60%, #b91c1c 80%, #dc2626 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+/* Light theme shiny text */
+:root.light .shiny-text {
+  background: linear-gradient(
+    100deg,
+    #991b1b 0%, #dc2626 20%, #0f172a 40%,
+    #dc2626 60%, #991b1b 80%, #dc2626 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+/* ---- Admin scrollbar ---- */
+.admin-scrollbar::-webkit-scrollbar       { width: 6px; }
+.admin-scrollbar::-webkit-scrollbar-track { background: #1f2937; }
+.admin-scrollbar::-webkit-scrollbar-thumb { background: #dc2626; border-radius: 3px; }
+
+/* ---- Themed utility classes ---- */
+.bg-page     { background-color: var(--bg-page); }
+.bg-section  { background-color: var(--bg-section); }
+.bg-card     { background-color: var(--bg-card); }
+.bg-card2    { background-color: var(--bg-card2); }
+.text-t1     { color: var(--text-1); }
+.text-t2     { color: var(--text-2); }
+.text-t3     { color: var(--text-3); }
+.text-t4     { color: var(--text-4); }
+.border-t1   { border-color: var(--border-1); }
+.border-t2   { border-color: var(--border-2); }
+.nav-bg      { background-color: var(--nav-bg); backdrop-filter: blur(12px); }
+.accent-bg   { background-color: var(--accent-bg); }
