@@ -138,10 +138,11 @@ export function deleteProduct(id: string) {
 }
 
 // ── Partners ──────────────────────────────────────────────
+const BASE = import.meta.env.BASE_URL;
 const DEFAULT_PARTNERS: Partner[] = [
-  { id: '1', name: 'Fortinet',    desc: 'Next-Generation Firewall & Security', logo: '/logo-fortinet.png',    createdAt: Date.now() },
-  { id: '2', name: 'Grandstream', desc: 'IP Telephony & Collaboration',        logo: '/logo-grandstream.svg', createdAt: Date.now() - 1000 },
-  { id: '3', name: 'Cisco',       desc: 'Networking & Infrastructure',         logo: '/logo-cisco.jpg',       createdAt: Date.now() - 2000 },
+  { id: '1', name: 'Fortinet',    desc: 'Next-Generation Firewall & Security', logo: `${BASE}logo-fortinet.png`,    createdAt: Date.now() },
+  { id: '2', name: 'Grandstream', desc: 'IP Telephony & Collaboration',        logo: `${BASE}logo-grandstream.svg`, createdAt: Date.now() - 1000 },
+  { id: '3', name: 'Cisco',       desc: 'Networking & Infrastructure',         logo: `${BASE}logo-cisco.jpg`,       createdAt: Date.now() - 2000 },
 ];
 export function getPartners(): Partner[] {
   try {
