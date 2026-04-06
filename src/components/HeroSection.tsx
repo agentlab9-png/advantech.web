@@ -23,7 +23,7 @@ export default function HeroSection() {
     'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_105406_16f4600d-7a92-4292-b96e-b19156c7830a.mp4';
 
   return (
-    <section id="home" className="relative h-screen w-full overflow-hidden bg-black">
+    <section id="home" className="relative w-full overflow-hidden bg-black" style={{ height: '100dvh' }}>
       {/* Video */}
       <video className="absolute inset-0 w-full h-full object-cover"
         src={videoUrl} autoPlay loop muted playsInline />
